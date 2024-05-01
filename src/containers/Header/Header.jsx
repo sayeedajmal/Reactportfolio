@@ -28,13 +28,15 @@ const Header = () => {
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text"> Hello, I am</p>
-              <h1 className="head-text">Sayeed</h1>
+              <h1 className="head-text">Sayeed Ahmed</h1>
             </div>
           </div>
 
           <div className="tag-cmp app__flex">
             <p className="p-text">Java FullStack Developer</p>
-            <p className="p-text">Frontend Developer(React,scss)</p>
+            <p className="p-text" style={{ textTransform: "inherit" }}>
+              [Java, Spring, React , MongoDB]
+            </p>
           </div>
         </div>
       </motion.div>
@@ -58,11 +60,13 @@ const Header = () => {
         whileInView={scaleVarients.whileInView}
         className="app__header-circles"
       >
-        {[images.java, images.mongo, images.react].map((circle, index) => (
-          <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="circle" />
-          </div>
-        ))}
+        {[images.java, images.spring, images.react, images.mongo].map(
+          (circle, index) => (
+            <div className="circle-cmp app__flex" key={`circle-${index}`}>
+              <img src={circle} alt="circle" />
+            </div>
+          )
+        )}
       </motion.div>
     </div>
   );

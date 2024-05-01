@@ -7,24 +7,27 @@ import { AppWrap, MotionWrap } from "../../wrapper";
 
 const about = [
   {
-    title: "Java FullStack Developer",
-    description: "A FullStack Java Developer having Solid Skills.",
+    title: "Core Java Developer",
+    description:
+      "Solid foundation for Java backend development, adept at building robust and scalable server-side applications",
     imgUrl: images.java,
   },
   {
     title: "Spring Developer",
-    description: "A Solid Conceptual Developer.",
+    description:
+      "Utilizes advanced knowledge to deploy Java applications efficiently, leveraging the power for rapid development",
     imgUrl: images.spring,
   },
   {
-    title: "React",
-    description: "A FullStack Java Developer having React Is Amazing.",
+    title: "React Developer",
+    description:
+      "Solid foundation for dynamic frontend development with React, good in building interactive and responsive UI.",
     imgUrl: images.react,
   },
   {
-    title: "Mongodb/MySql",
+    title: "MongoDB Specialist",
     description:
-      "A FullStack Java Developer having Database mangement is like WOW.",
+      "Demonstrates proficiency in MongoDB, specializing in scalable and flexible storage solutions for modern applications",
     imgUrl: images.mongo,
   },
 ];

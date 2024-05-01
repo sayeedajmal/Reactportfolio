@@ -21,6 +21,10 @@ const mySkills = [
     icon: images.react,
   },
   {
+    name: "AWS",
+    icon: images.aws,
+  },
+  {
     name: "MongoDB",
     icon: images.mongo,
   },

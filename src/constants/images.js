@@ -2,9 +2,9 @@ import email from "../assets/email.png";
 import mobile from "../assets/mobile.png";
 import portfolio from "../assets/portfolio.png";
 import mysql from "../assets/mysql.svg";
+import aws from "../assets/aws.svg";
 import css from "../assets/css.png";
 
-import node from "../assets/node.png";
 import linux from "../assets/linux.svg";
 import react from "../assets/react.svg";
 import QuranFy from "../assets/QuranFy.png";
@@ -31,8 +31,8 @@ export default {
   mobile,
   portfolio,
   mysql,
+  aws,
   css,
-  node,
   linux,
   react,
   QuranFy,

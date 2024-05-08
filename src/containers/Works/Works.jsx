@@ -19,7 +19,7 @@ const Works = () => {
       description:
         "Immersive application with (Java, Firebase, Android) for listening to the Quran with synchronized lyrics and user-friendly interface.",
       imgUrl: images.QuranFy,
-      projectLink: "https://sayeedthedev.web.app",
+      projectLink: "https://github.com/sayeedajmal/QuranFy",
       tags: ["Android Developer", "Java Developer"],
     },
     {
@@ -27,7 +27,7 @@ const Works = () => {
       description:
         "A Java project with (Android ,API, DB) implements real-time speed tracking and monitoring system, enhancing road safety.",
       imgUrl: images.speedSync,
-      projectLink: "https://sayeedthedev.web.app",
+      projectLink: "https://github.com/sayeedajmal/SpeedSync-Dashboard",
       tags: ["API Integration", "Java Developer", "Spring Developer"],
     },
     {
@@ -35,7 +35,7 @@ const Works = () => {
       description:
         "Developed a RESTful API for blood donation management using Java, Spring, Hibernate, and MySQL",
       imgUrl: images.BloodDonation,
-      projectLink: "https://sayeedthedev.web.app",
+      projectLink: "https://github.com/sayeedajmal/SpeedSync_RestFul-API",
       tags: ["Spring Developer", "Java Developer", "API Integration"],
     },
     {
@@ -51,7 +51,7 @@ const Works = () => {
       description:
         "Web and Android applications developed for various purposes, enhancing user experience and functionality.",
       imgUrl: images.java,
-      projectLink: "https://sayeedthedev.web.app",
+      projectLink: "https://github.com/sayeedajmal/Applications",
       tags: ["Android Developer", "FrontEnd Developer", "API Integration"],
     },
   ];
@@ -101,6 +101,7 @@ const Works = () => {
                   staggerChildren: 0.5,
                 }}
                 className="app__work-hover app__flex"
+                style={{ opacity: 0.5 }}
               >
                 <a href={work.projectLink} target="_blank" rel="nonrefer">
                   <motion.div

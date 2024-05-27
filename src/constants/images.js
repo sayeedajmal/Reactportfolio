@@ -13,6 +13,7 @@ import spring from "../assets/spring.svg";
 import mongo from "../assets/mongo.svg";
 import firebase from "../assets/firebase.svg";
 import profile from "../assets/profile.svg";
+import profile1 from "../assets/profile1.svg";
 
 import sass from "../assets/sass.png";
 import BloodDonation from "../assets/BloodDonation.svg";
@@ -23,6 +24,7 @@ import logo from "../assets/logo.png";
 
 export default {
   profile,
+  profile1,
   firebase,
   mongo,
   spring,

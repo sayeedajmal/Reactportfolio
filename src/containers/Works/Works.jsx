@@ -1,34 +1,55 @@
 import React from 'react';
 import { images } from "../../constants";
+import { motion } from "framer-motion";
 
 const Works = () => {
   return (
     <div id="work" className="mywork">
       <div className="title-box">
-        <h1>My latest work</h1>
-        <img
+        <motion.h1
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          My latest work
+        </motion.h1>
+        <motion.img
           src={images.bg}
           alt=""
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
       <div className="mywork-container">
         {workData.map((project, index) => (
-          <div className="project" key={index}>
+          <motion.div
+            className="project"
+            key={index}
+            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <img
               src={project.src}
               alt={`Project ${index + 1}`}
               className='rounded-lg'
             />
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div className="mywork-showmore">
+      <motion.div
+        className="mywork-showmore"
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <p>Show More</p>
         <img
           src={images.bg}
           alt=""
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -48,6 +69,7 @@ const workData = [
   },
   {
     src: "https://via.placeholder.com/300x200?text=Project+5",
-  },];
+  },
+];
 
 export default Works;

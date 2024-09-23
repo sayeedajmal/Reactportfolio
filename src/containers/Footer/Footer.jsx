@@ -1,19 +1,30 @@
 import React from 'react';
 import { images } from "../../constants";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-top">
-        <div className="footer-top-left">
+        <motion.div
+          className="footer-top-left"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <img
             src={images.logo}
             alt="Logo"
             className='w-1/6'
           />
-          <p>I am a Fullstack developer from the India with 2 years of experience in differene domains like frontend, backend, Api, DevOps.</p>
-        </div>
-        <div className="footer-top-right">
+          <p>I am a Fullstack developer from the India with 2 years of experience in different domains like frontend, backend, API, DevOps.</p>
+        </motion.div>
+        <motion.div
+          className="footer-top-right"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <div className="footer-email-input">
             <img
               src={images.email}
@@ -21,18 +32,30 @@ const Footer = () => {
             />
             <input type="email" placeholder="Enter your email" />
           </div>
-          <div className="footer-subscribe">Subscribe</div>
-        </div>
+          <motion.div
+            className="footer-subscribe"
+            whileInView={{ scale: 1, opacity: 1 }}
+            initial={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            Subscribe
+          </motion.div>
+        </motion.div>
       </div>
       <hr />
-      <div className="footer-bottom">
+      <motion.div
+        className="footer-bottom"
+        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <p className="footer-bottom-left">©2024 Sayeed Ahmed. All rights reserved.</p>
         <div className="footer-bottom-right">
           <p>Term of Services</p>
           <p>Privacy Policy</p>
           <p>Connect with me</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

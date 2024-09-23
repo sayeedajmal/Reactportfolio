@@ -1,25 +1,47 @@
 import React from "react";
 import { images } from "../../constants";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <div id="about" className="about">
       <div className="title-box">
-        <h1>About me</h1>
-        <img
+        <motion.h1
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          About me
+        </motion.h1>
+        <motion.img
           src={images.bg}
           alt=""
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
+
       <div className="about-sections">
-        <div className="about-left">
+        <motion.div
+          className="about-left"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <img
             src={images.profile}
             alt="profile"
             className="h-full w-[50vw]"
           />
-        </div>
-        <div className="about-right">
+        </motion.div>
+
+        <motion.div
+          className="about-right"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <div className="about-para">
             <p>
               I am an experienced Fullstack Developer with over a decade of
@@ -34,48 +56,94 @@ const About = () => {
             </p>
           </div>
           <div className="about-skills">
-            <div className="about-skill">
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>Java SE </p>
               <hr style={{ width: "70%" }} />
-            </div>
-            <div className="about-skill">
+            </motion.div>
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>Spring </p>
               <hr style={{ width: "80%" }} />
-            </div>
-            <div className="about-skill">
+            </motion.div>
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>RestApi </p>
               <hr style={{ width: "80%" }} />
-            </div>
-            <div className="about-skill">
+            </motion.div>
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>HTML &amp; CSS</p>
               <hr style={{ width: "50%" }} />
-            </div>
-            <div className="about-skill">
+            </motion.div>
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>React JS</p>
               <hr style={{ width: "70%" }} />
-            </div>
-            <div className="about-skill">
+            </motion.div>
+            <motion.div
+              className="about-skill"
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p>JavaScript</p>
               <hr style={{ width: "60%" }} />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
+
       <div className="about-achievements">
-        <div className="about-achievement">
+        <motion.div
+          className="about-achievement"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <h1>2+</h1>
           <p>YEARS OF EXPERIENCE</p>
-        </div>
+        </motion.div>
         <hr />
-        <div className="about-achievement">
+        <motion.div
+          className="about-achievement"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <h1>20+</h1>
           <p>PROJECTS COMPLETED</p>
-        </div>
+        </motion.div>
         <hr />
-        <div className="about-achievement">
+        <motion.div
+          className="about-achievement"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
           <h1>5+</h1>
           <p>HAPPY CLIENTS</p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

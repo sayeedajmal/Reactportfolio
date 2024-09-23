@@ -1,19 +1,35 @@
 import React from 'react';
 import { images } from "../../constants";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   return (
     <div id="services" className="services">
       <div className="title-box">
-        <h1>My Services</h1>
-        <img
+        <motion.h1
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          My Services
+        </motion.h1>
+        <motion.img
           src={images.bg}
           alt=""
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
       <div className="services-container">
         {servicesData.map((service, index) => (
-          <div className="services-format" key={index}>
+          <motion.div
+            className="services-format"
+            key={index}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <h3>{service.number}</h3>
             <h2>{service.title}</h2>
             <p>{service.description}</p>
@@ -24,7 +40,7 @@ const Skills = () => {
                 alt=""
               />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

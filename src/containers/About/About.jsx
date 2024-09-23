@@ -1,74 +1,84 @@
 import React from "react";
-import "./About.scss";
-
-import { motion } from "framer-motion";
 import { images } from "../../constants";
-import { AppWrap, MotionWrap } from "../../wrapper";
 
-const about = [
-  {
-    title: "Core Java Developer",
-    description:
-      "Solid foundation for Java backend development, adept at building robust and scalable server-side applications",
-    imgUrl: images.java,
-  },
-  {
-    title: "Spring Developer",
-    description:
-      "Utilizes advanced knowledge to deploy Java applications efficiently, leveraging the power for rapid development",
-    imgUrl: images.spring,
-  },
-  {
-    title: "React Developer",
-    description:
-      "Solid foundation for dynamic frontend development with React, good in building interactive and responsive UI.",
-    imgUrl: images.react,
-  },
-  {
-    title: "MongoDB Specialist",
-    description:
-      "Demonstrates proficiency in MongoDB, specializing in scalable and flexible storage solutions for modern applications",
-    imgUrl: images.mongo,
-  },
-];
 const About = () => {
   return (
-    <>
-      <h2 className="head-text">
-        Working Hard
-        <span>
-          {" "}
-          means
-          <br />{" "}
-        </span>
-        Going To <span>Sucessful</span>
-      </h2>
-
-      <div className="app__profiles">
-        {about.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
-            className="app__profile-item"
-            key={about.title + index}
-          >
-            <img src={about.imgUrl} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              {about.title}
-            </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
-              {about.description}
-            </p>
-          </motion.div>
-        ))}
+    <div id="about" className="about">
+      <div className="title-box">
+        <h1>About me</h1>
+        <img
+          src={images.bg}
+          alt=""
+        />
       </div>
-    </>
+      <div className="about-sections">
+        <div className="about-left">
+          <img
+            src={images.profile}
+            alt="profile"
+            className="h-full w-[50vw]"
+          />
+        </div>
+        <div className="about-right">
+          <div className="about-para">
+            <p>
+              I am an experienced Fullstack Developer with over a decade of
+              professional expertise in the field. Throughout my career, I have
+              had the privilege of collaborating with prestigious organizations,
+              contributing to their success and growth.
+            </p>
+            <p>
+              My passion for Fullstack development is not only reflected in my
+              extensive experience but also in the enthusiasm and dedication I
+              bring to each project.
+            </p>
+          </div>
+          <div className="about-skills">
+            <div className="about-skill">
+              <p>Java SE </p>
+              <hr style={{ width: "70%" }} />
+            </div>
+            <div className="about-skill">
+              <p>Spring </p>
+              <hr style={{ width: "80%" }} />
+            </div>
+            <div className="about-skill">
+              <p>RestApi </p>
+              <hr style={{ width: "80%" }} />
+            </div>
+            <div className="about-skill">
+              <p>HTML &amp; CSS</p>
+              <hr style={{ width: "50%" }} />
+            </div>
+            <div className="about-skill">
+              <p>React JS</p>
+              <hr style={{ width: "70%" }} />
+            </div>
+            <div className="about-skill">
+              <p>JavaScript</p>
+              <hr style={{ width: "60%" }} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="about-achievements">
+        <div className="about-achievement">
+          <h1>2+</h1>
+          <p>YEARS OF EXPERIENCE</p>
+        </div>
+        <hr />
+        <div className="about-achievement">
+          <h1>20+</h1>
+          <p>PROJECTS COMPLETED</p>
+        </div>
+        <hr />
+        <div className="about-achievement">
+          <h1>5+</h1>
+          <p>HAPPY CLIENTS</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default AppWrap(
-  MotionWrap(About, "app__about"),
-  "about",
-  "app__whitebg"
-);
+export default About;

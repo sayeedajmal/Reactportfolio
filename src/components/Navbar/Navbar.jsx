@@ -1,49 +1,75 @@
 import React, { useState } from "react";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { motion } from "framer-motion";
-
 import { images } from "../../constants";
-import "./Navbar.scss";
+import close from "./close.svg";
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false); // State to control menu visibility
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen); // Toggle the nav menu
+  };
 
   return (
-    <nav className="app__navbar">
-      <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
-      </div>
-      <ul className="app__navbar-links">
-        {["home", "about", "work", "skills", "contact"].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
-          </li>
-        ))}
+    <div className="navbar">
+      <img src={images.logo} alt="logo" className="logo" />
+
+      {/* Mobile menu open icon */}
+      <img
+        src={images.panel}
+        alt="menu-open"
+        className="nav-mob-open"
+        onClick={toggleNav} // Open the menu on click
+      />
+
+      {/* Navigation menu with inline styles for sliding effect */}
+      <ul
+        className="nav-menu"
+        style={{
+          right: isNavOpen ? '0' : '-300px', // Slide in or out
+          transition: 'right 0.3s ease', // Smooth transition
+        }}
+      >
+        {/* Close button for mobile navigation */}
+        <img
+          className="nav-mob-close"
+          src={close}
+          alt="close"
+          onClick={toggleNav} // Close the menu on click
+        />
+
+        <li>
+          <a className="anchor-link" href="#home">
+            <p>Home</p>
+          </a>
+        </li>
+        <li>
+          <a className="anchor-link" href="#about">
+            <p>About Me</p>
+          </a>
+        </li>
+        <li>
+          <a className="anchor-link" href="#services">
+            <p>Services</p>
+          </a>
+        </li>
+        <li>
+          <a className="anchor-link" href="#work">
+            <p>Portfolio</p>
+          </a>
+        </li>
+        <li>
+          <a className="anchor-link" href="#contact">
+            <p>Contact</p>
+          </a>
+        </li>
       </ul>
 
-      <div className="app__navbar-menu">
-        <HiMenuAlt3 onClick={() => setToggle(true)} />
-
-        {toggle && (
-          <motion.div
-            whileInView={{ x: [200, 0] }}
-            transition={{ duration: 0.4, ease: "easeIn" }}
-          >
-            <HiX onClick={() => setToggle(false)} />
-            <ul>
-              {["home", "about", "work", "skills", "contact"].map((item) => (
-                <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
+      <div className="nav-connect">
+        <a className="anchor-link" href="#contact">
+          Connect With Me
+        </a>
       </div>
-    </nav>
+    </div>
   );
 };
 

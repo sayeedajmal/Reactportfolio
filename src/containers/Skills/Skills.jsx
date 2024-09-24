@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import sanityClient from '../../SanityClient';
 import { images } from "../../constants";
-import { motion } from "framer-motion";
 
 const Skills = () => {
+  const [servicesData, setServicesData] = useState([]);
+
+  const fetchServices = async () => {
+    try {
+      const data = await sanityClient.fetch('*[_type == "service"]{number, title, description}');
+      setServicesData(data);
+    } catch (error) {
+      console.error('Error fetching services data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
+
   return (
     <div id="services" className="services">
       <div className="title-box">
@@ -35,10 +51,7 @@ const Skills = () => {
             <p>{service.description}</p>
             <div className="services-readmore">
               <p>Read More</p>
-              <img
-                src={images.bg}
-                alt=""
-              />
+              <img src={images.bg} alt="" />
             </div>
           </motion.div>
         ))}
@@ -46,38 +59,5 @@ const Skills = () => {
     </div>
   );
 };
-
-const servicesData = [
-  {
-    number: "01",
-    title: "Web design",
-    description: "Web development is the process of building, programming..."
-  },
-  {
-    number: "02",
-    title: "Graphics design",
-    description: "Web development is the process of building, programming..."
-  },
-  {
-    number: "03",
-    title: "Social media",
-    description: "Web development is the process of building, programming..."
-  },
-  {
-    number: "04",
-    title: "App design",
-    description: "Web development is the process of building, programming..."
-  },
-  {
-    number: "05",
-    title: "Digital marketing",
-    description: "Web development is the process of building, programming..."
-  },
-  {
-    number: "06",
-    title: "Content writing",
-    description: "Web development is the process of building, programming..."
-  }
-];
 
 export default Skills;

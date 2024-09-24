@@ -1,8 +1,25 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import sanityClient from '../../SanityClient';
 import { images } from "../../constants";
-import { motion } from "framer-motion";
+import { urlFor } from '../../image_builder';
 
 const Works = () => {
+  const [workData, setWorkData] = useState([]);
+
+  const fetchWorks = async () => {
+    try {
+      const data = await sanityClient.fetch('*[_type == "project"]{image{asset->{_id, url}}, description}');
+      setWorkData(data);
+    } catch (error) {
+      console.error('Error fetching works data:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchWorks();
+  }, []);
+
   return (
     <div id="work" className="mywork">
       <div className="title-box">
@@ -31,7 +48,7 @@ const Works = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <img
-              src={project.src}
+              src={urlFor(project.image.asset).url()}
               alt={`Project ${index + 1}`}
               className='rounded-lg'
             />
@@ -53,23 +70,5 @@ const Works = () => {
     </div>
   );
 };
-
-const workData = [
-  {
-    src: "https://via.placeholder.com/300x200?text=Project+1",
-  },
-  {
-    src: "https://via.placeholder.com/300x200?text=Project+2",
-  },
-  {
-    src: "https://via.placeholder.com/300x200?text=Project+3",
-  },
-  {
-    src: "https://via.placeholder.com/300x200?text=Project+4",
-  },
-  {
-    src: "https://via.placeholder.com/300x200?text=Project+5",
-  },
-];
 
 export default Works;

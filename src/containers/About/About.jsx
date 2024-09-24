@@ -1,8 +1,34 @@
-import React from "react";
-import { images } from "../../constants";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import sanityClient from "../../SanityClient";
+import { images } from "../../constants";
+import { urlFor } from "../../image_builder";
 
 const About = () => {
+  const [aboutImage, setAboutImage] = useState(null);
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    const fetchAboutImage = async () => {
+      const data = await sanityClient.fetch('*[_type == "profile"]{image{asset->{_id, url}}}');
+      setAboutImage(data[0]?.image.asset);
+    };
+
+    const fetchSkills = async () => {
+      const skillData = await sanityClient.fetch('*[_type == "skill"]{name, width, image{asset->{_id, url}}}');
+      setSkills(skillData);
+    };
+
+    fetchAboutImage();
+    fetchSkills();
+  }, []);
+
+  const achievements = [
+    { number: "2+", label: "YEARS OF EXPERIENCE" },
+    { number: "20+", label: "PROJECTS COMPLETED" },
+    { number: "5+", label: "HAPPY CLIENTS" },
+  ];
+
   return (
     <div id="about" className="about">
       <div className="title-box">
@@ -29,11 +55,13 @@ const About = () => {
           initial={{ opacity: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src={images.profile}
-            alt="profile"
-            className="h-full w-[50vw]"
-          />
+          {aboutImage && (
+            <img
+              src={urlFor(aboutImage).url()}
+              alt="About"
+              className="h-full w-[50vw]"
+            />
+          )}
         </motion.div>
 
         <motion.div
@@ -56,94 +84,44 @@ const About = () => {
             </p>
           </div>
           <div className="about-skills">
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>Java SE </p>
-              <hr style={{ width: "70%" }} />
-            </motion.div>
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>Spring </p>
-              <hr style={{ width: "80%" }} />
-            </motion.div>
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>RestApi </p>
-              <hr style={{ width: "80%" }} />
-            </motion.div>
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>HTML &amp; CSS</p>
-              <hr style={{ width: "50%" }} />
-            </motion.div>
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>React JS</p>
-              <hr style={{ width: "70%" }} />
-            </motion.div>
-            <motion.div
-              className="about-skill"
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p>JavaScript</p>
-              <hr style={{ width: "60%" }} />
-            </motion.div>
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="about-skill"
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                {skill.image && (
+                  <img
+                    src={urlFor(skill.image).url()}
+                    alt={skill.name}
+                    className="skill-image"
+                  />
+                )}
+                <p>{skill.name}</p>
+                <hr style={{ width: skill.width }} />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
 
       <div className="about-achievements">
-        <motion.div
-          className="about-achievement"
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 50 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <h1>2+</h1>
-          <p>YEARS OF EXPERIENCE</p>
-        </motion.div>
-        <hr />
-        <motion.div
-          className="about-achievement"
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 50 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <h1>20+</h1>
-          <p>PROJECTS COMPLETED</p>
-        </motion.div>
-        <hr />
-        <motion.div
-          className="about-achievement"
-          whileInView={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 50 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <h1>5+</h1>
-          <p>HAPPY CLIENTS</p>
-        </motion.div>
+        {achievements.map((achievement, index) => (
+          <React.Fragment key={index}>
+            <motion.div
+              className="about-achievement"
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h1>{achievement.number}</h1>
+              <p>{achievement.label}</p>
+            </motion.div>
+            <hr />
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );

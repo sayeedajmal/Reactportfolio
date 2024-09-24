@@ -48,7 +48,7 @@ const Skills = () => {
           >
             <h3>{service.number}</h3>
             <h2>{service.title}</h2>
-            <p>{service.description}</p>
+            <p className="line-clamp-5">{service.description}</p>
             <div className="services-readmore">
               <p>Read More</p>
               <img src={images.bg} alt="" />

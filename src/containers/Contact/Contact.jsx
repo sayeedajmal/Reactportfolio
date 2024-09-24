@@ -82,9 +82,12 @@ const Contact = () => {
           <input type="hidden" name="subject" value="New Submission from Portfolio" />
           <label htmlFor="name">Your Name</label>
           <input type="text" id="name" placeholder="Enter your name" name="name" required />
+          <input type="text" id="name" placeholder="Enter your name" name="name" required />
           <label htmlFor="email">Your Email</label>
           <input type="email" id="email" placeholder="Enter your email" name="email" required />
+          <input type="email" id="email" placeholder="Enter your email" name="email" required />
           <label htmlFor="message">Write your message here</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
           <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
           <button type="submit" className="contact-submit">Submit now</button>
         </motion.form>

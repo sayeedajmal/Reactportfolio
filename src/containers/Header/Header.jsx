@@ -44,7 +44,7 @@ const Header = () => {
         <motion.div
           className="hero-resume"
           whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
         >
           My resume

@@ -59,7 +59,7 @@ const About = () => {
             <img
               src={urlFor(aboutImage).url()}
               alt="About"
-              className="h-full w-[50vw]"
+              className="max-w-[100vw]"
             />
           )}
         </motion.div>
@@ -67,7 +67,7 @@ const About = () => {
         <motion.div
           className="about-right"
           whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="about-para">
@@ -99,7 +99,7 @@ const About = () => {
                     className="skill-image"
                   />
                 )}
-                <p>{skill.name}</p>
+                <p className="max-w-5">{skill.name}</p>
                 <hr style={{ width: skill.width }} />
               </motion.div>
             ))}

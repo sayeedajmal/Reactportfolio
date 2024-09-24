@@ -22,7 +22,7 @@ const Footer = () => {
         <motion.div
           className="footer-top-right"
           whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="footer-email-input">

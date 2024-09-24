@@ -19,7 +19,7 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <span>I'm Sayeed Ahmed,</span> FullStack developer based in India.
+        <span>I'm Ladle Patel,</span> A Data Scientist based in KSA.
       </motion.h1>
 
       <motion.p
@@ -27,8 +27,8 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        I am a fullstack developer from Karnataka, India with 2 years of
-        experience in domains like Frontend, Backend, API, DevOps.
+        I am a Data Scientist from Riyad, KSA with 12 years of
+        experience in domains like OpenAi, Machine Learning, Data Science, Artificial Intelligence.
       </motion.p>
 
       <div className="hero-action">

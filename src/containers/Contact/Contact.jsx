@@ -76,7 +76,7 @@ const Contact = () => {
           onSubmit={sendEmail}
           className="contact-right"
           whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <input type="hidden" name="subject" value="New Submission from Portfolio" />

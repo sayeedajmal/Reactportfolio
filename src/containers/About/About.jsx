@@ -1,74 +1,130 @@
-import React from "react";
-import "./About.scss";
-
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import sanityClient from "../../SanityClient";
 import { images } from "../../constants";
-import { AppWrap, MotionWrap } from "../../wrapper";
+import { urlFor } from "../../image_builder";
 
-const about = [
-  {
-    title: "Core Java Developer",
-    description:
-      "Solid foundation for Java backend development, adept at building robust and scalable server-side applications",
-    imgUrl: images.java,
-  },
-  {
-    title: "Spring Developer",
-    description:
-      "Utilizes advanced knowledge to deploy Java applications efficiently, leveraging the power for rapid development",
-    imgUrl: images.spring,
-  },
-  {
-    title: "React Developer",
-    description:
-      "Solid foundation for dynamic frontend development with React, good in building interactive and responsive UI.",
-    imgUrl: images.react,
-  },
-  {
-    title: "MongoDB Specialist",
-    description:
-      "Demonstrates proficiency in MongoDB, specializing in scalable and flexible storage solutions for modern applications",
-    imgUrl: images.mongo,
-  },
-];
 const About = () => {
-  return (
-    <>
-      <h2 className="head-text">
-        Working Hard
-        <span>
-          {" "}
-          means
-          <br />{" "}
-        </span>
-        Going To <span>Sucessful</span>
-      </h2>
+  const [aboutImage, setAboutImage] = useState(null);
+  const [skills, setSkills] = useState([]);
 
-      <div className="app__profiles">
-        {about.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
-            className="app__profile-item"
-            key={about.title + index}
-          >
-            <img src={about.imgUrl} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              {about.title}
-            </h2>
-            <p className="p-text" style={{ marginTop: 10 }}>
-              {about.description}
+  useEffect(() => {
+    const fetchAboutImage = async () => {
+      const data = await sanityClient.fetch('*[_type == "profile"]{image{asset->{_id, url}}}');
+      setAboutImage(data[0]?.image.asset);
+    };
+
+    const fetchSkills = async () => {
+      const skillData = await sanityClient.fetch('*[_type == "skill"]{name, width, image{asset->{_id, url}}}');
+      setSkills(skillData);
+    };
+
+    fetchAboutImage();
+    fetchSkills();
+  }, []);
+
+  const achievements = [
+    { number: "2+", label: "YEARS OF EXPERIENCE" },
+    { number: "20+", label: "PROJECTS COMPLETED" },
+    { number: "5+", label: "HAPPY CLIENTS" },
+  ];
+
+  return (
+    <div id="about" className="about">
+      <div className="title-box">
+        <motion.h1
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          About me
+        </motion.h1>
+        <motion.img
+          src={images.bg}
+          alt=""
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+      </div>
+
+      <div className="about-sections">
+        <motion.div
+          className="about-left"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          {aboutImage && (
+            <img
+              src={urlFor(aboutImage).url()}
+              alt="About"
+              className="h-full w-[50vw]"
+            />
+          )}
+        </motion.div>
+
+        <motion.div
+          className="about-right"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <div className="about-para">
+            <p>
+              I am an experienced Fullstack Developer with over a decade of
+              professional expertise in the field. Throughout my career, I have
+              had the privilege of collaborating with prestigious organizations,
+              contributing to their success and growth.
             </p>
-          </motion.div>
+            <p>
+              My passion for Fullstack development is not only reflected in my
+              extensive experience but also in the enthusiasm and dedication I
+              bring to each project.
+            </p>
+          </div>
+          <div className="about-skills">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="about-skill"
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                {skill.image && (
+                  <img
+                    src={urlFor(skill.image).url()}
+                    alt={skill.name}
+                    className="skill-image"
+                  />
+                )}
+                <p>{skill.name}</p>
+                <hr style={{ width: skill.width }} />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="about-achievements">
+        {achievements.map((achievement, index) => (
+          <React.Fragment key={index}>
+            <motion.div
+              className="about-achievement"
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h1>{achievement.number}</h1>
+              <p>{achievement.label}</p>
+            </motion.div>
+            <hr />
+          </React.Fragment>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default AppWrap(
-  MotionWrap(About, "app__about"),
-  "about",
-  "app__whitebg"
-);
+export default About;

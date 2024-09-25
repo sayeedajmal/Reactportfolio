@@ -1,75 +1,57 @@
 import React from "react";
-
-import { motion } from "framer-motion";
 import { images } from "../../constants";
-import { AppWrap } from "../../wrapper";
-import "./Header.scss";
+import { motion } from "framer-motion";
 
-const scaleVarients = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
 const Header = () => {
   return (
-    <div className="app__header app__flex">
-      <motion.div
-        whileInView={{ x: [-110, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.5 }}
-        className="app__header-info"
-      >
-        <div className="app__header-badge">
-          <div className="badge-cmp app__flex">
-            <span>👋</span>
-            <div style={{ marginLeft: 20 }}>
-              <p className="p-text"> Hello, I am</p>
-              <h1 className="head-text">SAYEED AHMED</h1>
-            </div>
-          </div>
+    <div id="home" className="hero">
+      <motion.img
+        src={images.logo}
+        alt="profile"
+        className="profile-img"
+        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
 
-          <div className="tag-cmp app__flex">
-            <p className="p-text">Java FullStack Developer</p>
-            <p className="p-text" style={{ textTransform: "inherit" }}>
-              [Java, Spring, React , MongoDB]
-            </p>
-          </div>
-        </div>
-      </motion.div>
+      <motion.h1
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        <span>I'm Ladle Patel,</span> A Data Scientist based in KSA.
+      </motion.h1>
 
-      <motion.div
-        whileInView={{ x: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__header-img"
+      <motion.p
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <img src={images.profile1} alt="profile_bg" />
-        <motion.img
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          src={images.circle}
-          alt="profile_circle"
-          className="overlay-circle"
-        />
-      </motion.div>
-      <motion.div
-        varient={scaleVarients}
-        whileInView={scaleVarients.whileInView}
-        className="app__header-circles"
-      >
-        {[images.java, images.spring, images.react, images.mongo].map(
-          (circle, index) => (
-            <div className="circle-cmp app__flex" key={`circle-${index}`}>
-              <img src={circle} alt="circle" />
-            </div>
-          )
-        )}
-      </motion.div>
+        I am a Data Scientist from Riyad, KSA with 12 years of
+        experience in domains like OpenAi, Machine Learning, Data Science, Artificial Intelligence.
+      </motion.p>
+
+      <div className="hero-action">
+        <motion.div
+          className="hero-connect"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -50 }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        >
+          <a className="anchor-link" href="#contact">Connect with me</a>
+        </motion.div>
+
+        <motion.div
+          className="hero-resume"
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 50 }}
+          transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+        >
+          My resume
+        </motion.div>
+      </div>
     </div>
   );
 };
 
-export default AppWrap(Header, "home");
+export default Header;

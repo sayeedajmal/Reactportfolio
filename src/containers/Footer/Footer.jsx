@@ -1,6 +1,6 @@
-import React from 'react';
-import { images } from "../../constants";
 import { motion } from "framer-motion";
+import React from "react";
+import { images } from "../../constants";
 
 const Footer = () => {
   return (
@@ -12,12 +12,12 @@ const Footer = () => {
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img
-            src={images.logo}
-            alt="Logo"
-            className='w-1/6'
-          />
-          <p>I am a Fullstack developer from the India with 2 years of experience in different domains like frontend, backend, API, DevOps.</p>
+          <img src={images.logo} alt="Logo" className="w-1/6" />
+          <p>
+            I am an AI Advisor with over 12 years of experience specializing in
+            AI strategy, data science, and machine learning, with a focus on
+            transforming business operations and driving innovation.
+          </p>
         </motion.div>
         <motion.div
           className="footer-top-right"
@@ -26,10 +26,7 @@ const Footer = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="footer-email-input">
-            <img
-              src={images.email}
-              alt="Email Icon"
-            />
+            <img src={images.email} alt="Email Icon" />
             <input type="email" placeholder="Enter your email" />
           </div>
           <motion.div
@@ -49,7 +46,9 @@ const Footer = () => {
         initial={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <p className="footer-bottom-left">©2024 Ladle Patel. All rights reserved.</p>
+        <p className="footer-bottom-left">
+          ©2024 Ladle Patel. All rights reserved.
+        </p>
         <div className="footer-bottom-right">
           <p>Term of Services</p>
           <p>Privacy Policy</p>

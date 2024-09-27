@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { React, useEffect, useState } from "react";
+import { ReactTyped } from "react-typed";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
 import sanityClient from '../../SanityClient';
@@ -43,7 +44,17 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <span>I'm Ladle Patel,</span> A Data Scientist based in KSA.
+        <span>I'm Ladle Patel, </span>
+        <ReactTyped
+          strings={["A Data Scientist", "An AI Advisor", "An AI Strategist", "A ML Expert", "A Tech Leader"]}
+          typeSpeed={65}
+          backSpeed={60}
+          style={{
+            WebkitTextFillColor: "white", filter: "drop-shadow(2px 4px 6px black)",
+            position: "relative",
+            WebkitTextStrokeWidth: "1px",
+          }}
+          loop />
       </motion.h1>
 
       <motion.p
@@ -51,8 +62,10 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        I am a Data Scientist from Riyad, KSA with 12 years of
-        experience in domains like OpenAi, Machine Learning, Data Science, Artificial Intelligence.
+        Have over 12 years of experience in AI strategy, Data Science,
+        and Machine Learning. Skilled in AI/ML tools, Generative AI,
+        and large-scale data solutions, I’m currently working as a
+        Senior AI Advisor at Arab National Bank, leading AI transformation initiatives.
       </motion.p>
 
       <div className="hero-action">

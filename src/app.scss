@@ -1,3 +1,6 @@
+.head {
+  color: white !important;
+}
 .popup {
   display: none;
   position: fixed;
@@ -163,7 +166,6 @@
 
 .hero h1 {
   text-align: center;
-  width: 65%;
   font-size: 65px;
   font-weight: 600;
   line-height: 70px;
@@ -486,7 +488,7 @@
   }
 
   .services-container {
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 }

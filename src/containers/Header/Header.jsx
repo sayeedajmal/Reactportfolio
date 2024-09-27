@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { React, useEffect, useState } from "react";
+import { ReactTyped } from "react-typed";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
-import sanityClient from '../../SanityClient';
+import sanityClient from "../../SanityClient";
 import close from "./close.svg";
-
 
 const Header = () => {
   const [resume, setResume] = useState(null);
@@ -12,7 +12,9 @@ const Header = () => {
 
   useEffect(() => {
     const fetchAboutImage = async () => {
-      const data = await sanityClient.fetch('*[_type == "resume"]{image{asset->{_id, url}}}');
+      const data = await sanityClient.fetch(
+        '*[_type == "resume"]{image{asset->{_id, url}}}'
+      );
       setResume(data[0]?.image.asset);
     };
     fetchAboutImage();
@@ -43,7 +45,24 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <span>I'm Sayeed Ahmed,</span> FullStack developer based in India.
+        <span>I'm Sayeed Ahmed, </span>
+        <ReactTyped
+          strings={[
+            "A Java Developer",
+            "A FullStack Developer",
+            "A GenAi Developer",
+            "An Android Developer",
+          ]}
+          typeSpeed={65}
+          backSpeed={60}
+          style={{
+            WebkitTextFillColor: "white",
+            filter: "drop-shadow(2px 4px 6px black)",
+            position: "relative",
+            WebkitTextStrokeWidth: "1px",
+          }}
+          loop
+        />
       </motion.h1>
 
       <motion.p
@@ -51,8 +70,10 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        I am a fullstack developer from Karnataka, India with 2 years of
-        experience in domains like Frontend, Backend, API, DevOps.
+        I'm a FullStack Developer from Karnataka, India, with 2 years of
+        experience in Frontend, Backend, API development, and DevOps. I excel at
+        creating scalable web applications and delivering full-cycle software
+        solutions.
       </motion.p>
 
       <div className="hero-action">
@@ -62,7 +83,9 @@ const Header = () => {
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
         >
-          <a className="anchor-link" href="#contact">Connect with me</a>
+          <a className="anchor-link" href="#contact">
+            Connect with me
+          </a>
         </motion.div>
 
         <motion.button
@@ -87,7 +110,11 @@ const Header = () => {
               />
             </div>
             <div className="popup-content">
-              <img className="popup-image" src={urlFor(resume).url()} alt="Resume" />
+              <img
+                className="popup-image"
+                src={urlFor(resume).url()}
+                alt="Resume"
+              />
             </div>
           </div>
         )}

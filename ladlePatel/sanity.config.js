@@ -5,10 +5,10 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'SayeedCodes',
+  title: 'LadlePatel',
 
-  projectId: 'e47owsvd',
-  dataset: 'about',
+  projectId: 'f8q4esin',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
 

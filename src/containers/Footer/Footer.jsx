@@ -49,7 +49,7 @@ const Footer = () => {
         initial={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <p className="footer-bottom-left">©2024 Sayeed Ahmed. All rights reserved.</p>
+        <p className="footer-bottom-left">©2024 Ladle Patel. All rights reserved.</p>
         <div className="footer-bottom-right">
           <p>Term of Services</p>
           <p>Privacy Policy</p>

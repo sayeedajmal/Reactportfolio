@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Project README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project uses React for the frontend and Sanity for the backend. Follow the steps below to set up and run the project locally.
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+Make sure you have the following installed on your machine:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (which includes npm)
+- [npm](https://www.npmjs.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can check if they are installed by running:
 
-### `npm test`
+```bash
+node -v
+npm -v
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setting Up the React Project
 
-### `npm run build`
+1. **Navigate to the React project directory:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   cd path/to/your/react-project
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install React dependencies:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Build the React app for production:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm run build
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   This will create a `build` folder that contains the compressed version of your app for deployment.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Start the React app for development:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+   This will start the development server and you can view your app at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Setting Up Sanity
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Navigate to the Sanity project directory:**
 
-### Code Splitting
+   ```bash
+   cd path/to/your/sanity-folder
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Install Sanity dependencies:**
 
-### Analyzing the Bundle Size
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **Define your schema:**
 
-### Making a Progressive Web App
+   Navigate to the `schematypes` folder and create or edit your schema files as needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. **Start the Sanity studio:**
 
-### Advanced Configuration
+   ```bash
+   sanity start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   This will start the Sanity studio and you can access it at `http://localhost:3333`.
 
-### Deployment
+5. **Build Sanity for production:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+   sanity build
+   ```
 
-### `npm run build` fails to minify
+6. **Deploy Sanity:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   sanity deploy
+   ```

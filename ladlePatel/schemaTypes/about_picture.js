@@ -10,6 +10,7 @@ export default {
             /*  options: {
                hotspot: true, 
              }, */
+            description: 'Set Image with this size  (2048 × 1365) (mandatory)',
             validation: Rule => Rule.required(),
         },
     ],

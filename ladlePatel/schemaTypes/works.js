@@ -10,6 +10,7 @@ export default {
         // options: {
         //   hotspot: true,
         // },
+        description: 'Capture a full-width screenshot of the project by PC/Laptop (mandatory)',
         validation: Rule => Rule.required(),
       },
       {

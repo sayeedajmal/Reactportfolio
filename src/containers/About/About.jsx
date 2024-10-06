@@ -82,7 +82,7 @@ const About = () => {
             ensuring robust, efficient, and user-centered solutions that drive
             organizational success.
           </p>
-          <p class="text-base leading-relaxed">
+          <p className="text-base leading-relaxed hidden md:relative">
             In addition to my technical skills, I am highly experienced in cloud
             architecture and DevOps practices, having worked extensively with
             AWS services like EC2, S3, RDS, and DynamoDB. My ability to design

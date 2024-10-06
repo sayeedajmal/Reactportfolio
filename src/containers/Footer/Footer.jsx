@@ -14,9 +14,10 @@ const Footer = () => {
         >
           <img src={images.logo} alt="Logo" className="w-1/6" />
           <p>
-            I am an AI Advisor with over 12 years of experience specializing in
-            AI strategy, data science, and machine learning, with a focus on
-            transforming business operations and driving innovation.
+            I'm a FullStack Developer from Karnataka, India, with 2 years of
+            experience in Frontend, Backend, API development, and DevOps. I
+            excel at creating scalable web applications and delivering
+            full-cycle software solutions.
           </p>
         </motion.div>
         <motion.div
@@ -46,7 +47,9 @@ const Footer = () => {
         initial={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <p className="footer-bottom-left">©2024 Sayeed Ahmed. All rights reserved.</p>
+        <p className="footer-bottom-left">
+          ©2024 Sayeed Ahmed. All rights reserved.
+        </p>
         <div className="footer-bottom-right">
           <p>Term of Services</p>
           <p>Privacy Policy</p>

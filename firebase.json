@@ -1,7 +1,6 @@
 {
   "hosting": {
     "public": "build",
-    "site": "ladlepatel-ai",
     "ignore": [
       "firebase.json",
       "**/.*",

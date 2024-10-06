@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { IoClose } from "react-icons/io5"; // Importing the close icon
+import { IoClose } from "react-icons/io5";
 import sanityClient from "../../SanityClient";
 import { images } from "../../constants";
 
@@ -83,7 +83,7 @@ const Skills = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 h-1/2 mx-auto relative"
+              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 max-h-[80%] mx-auto relative overflow-auto"
               initial={{ y: -50 }}
               animate={{ y: 0 }}
               exit={{ y: -50 }}

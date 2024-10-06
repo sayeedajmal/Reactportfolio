@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { React, useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5"; // Importing the close icon
 import { ReactTyped } from "react-typed";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
 import sanityClient from "../../SanityClient";
-import close from "./close.svg";
 
 const Header = () => {
   const [resume, setResume] = useState(null);
@@ -45,7 +45,7 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <span>I'm Sayeed Ahmed, </span>
+        <span className="block">I'm Sayeed Ahmed, </span>
         <ReactTyped
           strings={[
             "A Java Developer",
@@ -53,13 +53,12 @@ const Header = () => {
             "A GenAi Developer",
             "An Android Developer",
           ]}
-          typeSpeed={65}
-          backSpeed={60}
+          typeSpeed={55}
+          className="text-3xl md:text-6xl"
+          backSpeed={50}
           style={{
             WebkitTextFillColor: "white",
             filter: "drop-shadow(2px 4px 6px black)",
-            position: "relative",
-            WebkitTextStrokeWidth: "1px",
           }}
           loop
         />
@@ -100,16 +99,13 @@ const Header = () => {
 
         {isPopupVisible && (
           <div className="popup" id="popup" style={{ display: "flex" }}>
-            <div id="close_Panel">
-              <img
-                id="close_image"
-                style={{ height: "3rem" }}
-                onClick={closePopup}
-                src={close}
-                alt="Close"
-              />
-            </div>
+            <div id="close_Panel"></div>
             <div className="popup-content">
+              <IoClose
+                className="absolute border-2 rounded-full top-3 right-3 text-gray-600 cursor-pointer"
+                size={24}
+                onClick={closePopup}
+              />
               <img
                 className="popup-image"
                 src={urlFor(resume).url()}

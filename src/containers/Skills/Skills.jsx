@@ -1,23 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import sanityClient from '../../SanityClient';
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5"; // Importing the close icon
+import sanityClient from "../../SanityClient";
 import { images } from "../../constants";
 
 const Skills = () => {
   const [servicesData, setServicesData] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
 
   const fetchServices = async () => {
     try {
-      const data = await sanityClient.fetch('*[_type == "service"]{number, title, description}');
+      const data = await sanityClient.fetch(
+        '*[_type == "service"]{number, title, description}'
+      );
       setServicesData(data);
     } catch (error) {
-      console.error('Error fetching services data:', error);
+      console.error("Error fetching services data:", error);
     }
   };
 
   useEffect(() => {
     fetchServices();
   }, []);
+
+  // Disable scroll when the modal is open
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [selectedService]);
 
   return (
     <div id="services" className="services">
@@ -44,18 +57,50 @@ const Skills = () => {
             key={index}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 50 }}
+            onClick={() => setSelectedService(service)}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <h3>{service.number}</h3>
             <h2>{service.title}</h2>
             <p className="line-clamp-5">{service.description}</p>
-            <div className="services-readmore">
-              <p>Read More</p>
+            <div
+              className="services-readmore"
+              onClick={() => setSelectedService(service)}
+            >
+              <p className="text-blue-500 cursor-pointer">Read More</p>
               <img src={images.bg} alt="" />
             </div>
           </motion.div>
         ))}
       </div>
+
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 h-1/2 mx-auto relative"
+              initial={{ y: -50 }}
+              animate={{ y: 0 }}
+              exit={{ y: -50 }}
+            >
+              <IoClose
+                className="absolute border-2 rounded-full top-3 right-3 text-gray-600 cursor-pointer"
+                size={24}
+                onClick={() => setSelectedService(null)}
+              />
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
+                {selectedService.title}
+              </h2>
+              <p className="mt-2 text-xl">{selectedService.description}</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

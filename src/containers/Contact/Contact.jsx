@@ -31,12 +31,12 @@ const Contact = () => {
 
   return (
     <div id="contact" className="contact">
-      <div className="title-box text-center">
+      <div className="title-box text-center -z-10">
         <motion.h1
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -50 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-4xl font-bold"
+          className="text-4xl font-bold "
         >
           Get in touch
         </motion.h1>

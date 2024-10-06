@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { React, useEffect, useState } from "react";
+import { IoClose } from "react-icons/io5"; // Importing the close icon
 import { ReactTyped } from "react-typed";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
@@ -50,9 +51,8 @@ const Header = () => {
           typeSpeed={65}
           backSpeed={60}
           style={{
-            WebkitTextFillColor: "white", filter: "drop-shadow(2px 4px 6px black)",
-            position: "relative",
-            WebkitTextStrokeWidth: "1px",
+            WebkitTextFillColor: "white",
+            filter: "drop-shadow(2px 4px 6px black)",
           }}
           loop />
       </motion.h1>
@@ -90,13 +90,12 @@ const Header = () => {
 
         {isPopupVisible && (
           <div className="popup" id="popup" style={{ display: "flex" }}>
-            <div id="close_Panel">
-              <img
-                id="close_image"
-                style={{ height: "3rem" }}
+            <div id="close_Panel"></div>
+            <div className="popup-content">
+              <IoClose
+                className="absolute border-2 rounded-full top-3 right-3 text-gray-600 cursor-pointer"
+                size={24}
                 onClick={closePopup}
-                src={close}
-                alt="Close"
               />
             </div>
             <div className="popup-content">

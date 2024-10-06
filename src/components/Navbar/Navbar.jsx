@@ -40,34 +40,34 @@ const Navbar = () => {
         />
 
         <li>
-          <a className="anchor-link" href="#home">
+          <a className="anchor-link" onClick={toggleNav} href="#home">
             <p>Home</p>
           </a>
         </li>
         <li>
-          <a className="anchor-link" href="#about">
+          <a className="anchor-link" onClick={toggleNav} href="#about">
             <p>About Me</p>
           </a>
         </li>
         <li>
-          <a className="anchor-link" href="#services">
+          <a className="anchor-link" onClick={toggleNav} href="#services">
             <p>Services</p>
           </a>
         </li>
         <li>
-          <a className="anchor-link" href="#work">
+          <a className="anchor-link" onClick={toggleNav} href="#work">
             <p>Portfolio</p>
           </a>
         </li>
         <li>
-          <a className="anchor-link" href="#contact">
+          <a className="anchor-link" onClick={toggleNav} href="#contact">
             <p>Contact</p>
           </a>
         </li>
       </ul>
 
       <div className="nav-connect">
-        <a className="anchor-link" href="#contact">
+        <a className="anchor-link" onClick={toggleNav} href="#contact">
           Connect With Me
         </a>
       </div>

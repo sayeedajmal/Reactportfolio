@@ -35,7 +35,7 @@ const Works = () => {
 
   return (
     <div id="work" className="mywork">
-      <div className="title-box">
+      <div className="title-box -z-10">
         <motion.h1
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -50 }}
@@ -72,13 +72,13 @@ const Works = () => {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#161513] p-5 flex gap-3 rounded-lg shadow-lg w-10/12 mx-auto relative"
+              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 mx-auto relative md:flex"
               initial={{ y: -50 }}
               animate={{ y: 0 }}
               exit={{ y: -50 }}
@@ -88,12 +88,14 @@ const Works = () => {
                 size={24}
                 onClick={() => setSelectedProject(null)} // Close modal
               />
+
               <img
                 src={urlFor(selectedProject.image.asset).url()}
                 alt={`Project Image`}
-                className="mt-4 rounded-lg w-1/3"
+                className="mt-4 rounded-lg w-full md:w-1/3" // Full width on mobile, 1/3 on md+
               />
-              <div className="ml-4">
+
+              <div className="ml-0 md:ml-4 mt-4 md:mt-0">
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
                   Project Description
                 </h2>

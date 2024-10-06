@@ -11,7 +11,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <img src={images.logo} alt="logo" className="logo" />
+      <a
+        href="https://sayeedthedev.web.app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={images.logo} alt="logo" className="logo" />
+      </a>
 
       <img
         src={images.panel}
@@ -22,8 +28,8 @@ const Navbar = () => {
       <ul
         className="nav-menu"
         style={{
-          right: isNavOpen ? '0' : '-300px',
-          transition: 'right 0.3s ease',
+          right: isNavOpen ? "0" : "-300px",
+          transition: "right 0.3s ease",
         }}
       >
         <img

@@ -360,10 +360,6 @@
     flex-direction: column;
   }
 
-  .about-left {
-    display: none;
-  }
-
   .about-para {
     line-height: 25px;
   }
@@ -464,7 +460,6 @@
 
 @media (max-width: 768px) {
   .services {
-    align-items: start;
     gap: 70px;
     margin: 20px 6%;
   }

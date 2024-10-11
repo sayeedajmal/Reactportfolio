@@ -64,7 +64,7 @@ const About = () => {
               <img
                 src={urlFor(aboutImage).url()}
                 alt="About"
-                className="max-w-[30vw]"
+                className="lg:max-w-[30vw]"
               />
             )}
           </motion.div>

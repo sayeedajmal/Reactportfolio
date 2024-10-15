@@ -1,3 +1,25 @@
+::-webkit-scrollbar {
+  width: 10px;
+  direction: ltr;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #07a002;
+}
+.my-masonry-grid {
+  display: flex;
+}
+
+
 .popup {
   display: none;
   position: fixed;
@@ -403,7 +425,7 @@
 .services-format {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 30px;
   border-radius: 10px;

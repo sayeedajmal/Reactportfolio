@@ -4,9 +4,7 @@ import { IoClose } from "react-icons/io5"; // Importing the close icon
 import { ReactTyped } from "react-typed";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
-import sanityClient from '../../SanityClient';
-import close from "./close.svg";
-
+import sanityClient from "../../SanityClient";
 
 const Header = () => {
   const [resume, setResume] = useState(null);
@@ -14,7 +12,9 @@ const Header = () => {
 
   useEffect(() => {
     const fetchAboutImage = async () => {
-      const data = await sanityClient.fetch('*[_type == "resume"]{image{asset->{_id, url}}}');
+      const data = await sanityClient.fetch(
+        '*[_type == "resume"]{image{asset->{_id, url}}}'
+      );
       setResume(data[0]?.image.asset);
     };
     fetchAboutImage();
@@ -47,14 +47,21 @@ const Header = () => {
       >
         <span>I'm Ladle Patel, </span>
         <ReactTyped
-          strings={["A Data Scientist", "An AI Advisor", "An AI Strategist", "A ML Expert", "A Tech Leader"]}
+          strings={[
+            "A Data Scientist",
+            "An AI Advisor",
+            "An AI Strategist",
+            "A ML Expert",
+            "A Tech Leader",
+          ]}
           typeSpeed={65}
           backSpeed={60}
           style={{
             WebkitTextFillColor: "white",
             filter: "drop-shadow(2px 4px 6px black)",
           }}
-          loop />
+          loop
+        />
       </motion.h1>
 
       <motion.p
@@ -62,10 +69,10 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        Have over 12 years of experience in AI strategy, Data Science,
-        and Machine Learning. Skilled in AI/ML tools, Generative AI,
-        and large-scale data solutions, I’m currently working as a
-        Senior AI Advisor at Arab National Bank, leading AI transformation initiatives.
+        Have over 12 years of experience in AI strategy, Data Science, and
+        Machine Learning. Skilled in AI/ML tools, Generative AI, and large-scale
+        data solutions, I’m currently working as a Senior AI Advisor at Arab
+        National Bank, leading AI transformation initiatives.
       </motion.p>
 
       <div className="hero-action">
@@ -75,7 +82,9 @@ const Header = () => {
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
         >
-          <a className="anchor-link" href="#contact">Connect with me</a>
+          <a className="anchor-link" href="#contact">
+            Connect with me
+          </a>
         </motion.div>
 
         <motion.button
@@ -93,13 +102,15 @@ const Header = () => {
             <div id="close_Panel"></div>
             <div className="popup-content">
               <IoClose
-                className="absolute border-2 rounded-full top-3 right-3 text-gray-600 cursor-pointer"
+                className="absolute border-2 rounded-full top-3 right-3 text-white cursor-pointer"
                 size={24}
                 onClick={closePopup}
               />
-            </div>
-            <div className="popup-content">
-              <img className="popup-image" src={urlFor(resume).url()} alt="Resume" />
+              <img
+                className="popup-image"
+                src={urlFor(resume).url()}
+                alt="Resume"
+              />
             </div>
           </div>
         )}

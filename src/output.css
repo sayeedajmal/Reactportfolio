@@ -1,3 +1,25 @@
+::-webkit-scrollbar {
+  width: 10px;
+  direction: ltr;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #07a002;
+}
+
+.my-masonry-grid {
+  display: flex;
+}
+
 .popup {
   display: none;
   position: fixed;
@@ -97,10 +119,10 @@
 
 @media (max-width: 768px) {
   .navbar {
-    margin: 0rem 1rem 1rem 1rem;
+    margin: auto;
     position: fixed;
     z-index: 50;
-    padding: 0.5rem;
+    padding: 0.3rem;
     display: flex;
     width: 100%;
     align-items: center;
@@ -360,10 +382,6 @@
     flex-direction: column;
   }
 
-  .about-left {
-    display: none;
-  }
-
   .about-para {
     line-height: 25px;
   }
@@ -464,7 +482,6 @@
 
 @media (max-width: 768px) {
   .services {
-    align-items: start;
     gap: 70px;
     margin: 20px 6%;
   }

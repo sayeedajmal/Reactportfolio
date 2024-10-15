@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { IoClose } from "react-icons/io5"; // Importing close icon
+import { IoClose, IoLink } from "react-icons/io5"; // Importing close icon
 import sanityClient from "../../SanityClient";
 import { images } from "../../constants";
 import { urlFor } from "../../image_builder";
@@ -12,7 +12,7 @@ const Works = () => {
   const fetchWorks = async () => {
     try {
       const data = await sanityClient.fetch(
-        '*[_type == "project"]{image{asset->{_id, url}}, description}'
+        '*[_type == "project"]{image{asset->{_id, url}}, description,url}'
       );
       setWorkData(data);
     } catch (error) {
@@ -64,7 +64,7 @@ const Works = () => {
             <img
               src={urlFor(project.image.asset).url()}
               alt={`Project ${index + 1}`}
-              className="rounded-lg cursor-pointer"
+              className="rounded-lg cursor-pointer md:h-[13rem]"
             />
           </motion.div>
         ))}
@@ -72,21 +72,30 @@ const Works = () => {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+            className="fixed group inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 mx-auto relative md:flex"
+              className="bg-[#161513] p-5 rounded-lg shadow-lg w-10/12 mx-auto relative max-h-[80%] overflow-auto md:flex"
               initial={{ y: -50 }}
               animate={{ y: 0 }}
               exit={{ y: -50 }}
             >
               <IoClose
-                className="absolute top-3 border-2 rounded-full right-3 text-gray-600 cursor-pointer"
+                className="absolute top-3 border-2 rounded-full right-3 text-white cursor-pointer"
                 size={24}
                 onClick={() => setSelectedProject(null)} // Close modal
+              />
+              <IoLink
+                className="md:absolute top-3 border-2 rounded-full border-black animate-ping md:group-hover:animate-ping duration-1000 right-1/4 text-white cursor-pointer"
+                size={24}
+                onClick={() => {
+                  if (selectedProject.url) {
+                    window.open(selectedProject.url, "_blank");
+                  }
+                }}
               />
 
               <img
@@ -99,7 +108,9 @@ const Works = () => {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
                   Project Description
                 </h2>
-                <p className="mt-2">{selectedProject.description}</p>
+                <p className="mt-2 overflow-auto">
+                  {selectedProject.description}
+                </p>
               </div>
             </motion.div>
           </motion.div>

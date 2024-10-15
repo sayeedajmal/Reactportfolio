@@ -11,7 +11,7 @@ const Skills = () => {
   const fetchServices = async () => {
     try {
       const data = await sanityClient.fetch(
-        '*[_type == "service"]{number, title, description}'
+        '*[_type == "service"]{number, title, description,url}'
       );
       setServicesData(data);
     } catch (error) {
@@ -53,7 +53,7 @@ const Skills = () => {
       <div className="services-container">
         {servicesData.map((service, index) => (
           <motion.div
-            className="services-format"
+            className="services-format group"
             key={index}
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 50 }}
@@ -64,10 +64,15 @@ const Skills = () => {
             <h2>{service.title}</h2>
             <p className="line-clamp-5">{service.description}</p>
             <div
-              className="services-readmore"
-              onClick={() => setSelectedService(service)}
+              className="services-readmore bg-[#161513] rounded-lg pl-2 w-1/2 group-hover:animate-bounce group-hover:scale-150 transition-transform duration-300"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (service.url) {
+                  window.open(service.url, "_blank");
+                }
+              }}
             >
-              <p className="text-blue-500 cursor-pointer">Read More</p>
+              <p className="text-blue-500 cursor-pointer">Book Now</p>
               <img src={images.bg} alt="" />
             </div>
           </motion.div>

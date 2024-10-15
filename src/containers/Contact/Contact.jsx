@@ -56,12 +56,9 @@ const Contact = () => {
           initial={{ opacity: 0, x: -50 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h1 className="text-2xl font-semibold">Let's talk</h1>
-          <p className="mt-2">
-            I'm currently available to take on new projects, so feel free to
-            send me a message about anything that you want me to work on. You
-            can contact me anytime.
-          </p>
+          <h1 className="p-2 mt-6 text-lg bg-gradient-to-r from-[#df8908] to-[#b415ff] bg-clip-text text-transparent">
+            Feel free to contact me
+          </h1>
           <div className="contact-details mt-4">
             {contactDetails.map((detail, index) => (
               <motion.div

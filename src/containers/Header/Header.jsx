@@ -45,7 +45,7 @@ const Header = () => {
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <span>I'm Ladle Patel, </span>
+        <span className="block md:inline">I'm Ladle Patel, </span>
         <ReactTyped
           strings={[
             "A Data Scientist",
@@ -54,8 +54,9 @@ const Header = () => {
             "A ML Expert",
             "A Tech Leader",
           ]}
-          typeSpeed={65}
-          backSpeed={60}
+          typeSpeed={55}
+          className="text-3xl md:text-6xl"
+          backSpeed={50}
           style={{
             WebkitTextFillColor: "white",
             filter: "drop-shadow(2px 4px 6px black)",

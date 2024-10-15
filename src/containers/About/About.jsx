@@ -124,16 +124,28 @@ const About = () => {
 
         <div className="about-para space-y-4">
           <p className="text-base leading-relaxed">
-            I'm an experienced FullStack Developer with over 2 years of
-            professional expertise, contributing to various projects in
-            Frontend, Backend, API development, and DevOps. I've had the
-            privilege of working on impactful projects like a blood donation
-            app, where I developed secure, scalable APIs and user-friendly
-            interfaces. My hands-on experience extends to healthcare IT
-            solutions, integrating industry standards like FHIR and HL7 into EHR
-            systems. With each project, I bring a passion for innovation,
-            ensuring robust, efficient, and user-centered solutions that drive
-            organizational success.
+            Ladle Patel is a visionary leader with extensive expertise in
+            driving AI and Generative AI initiatives that align with business
+            strategies across multiple industries, including finance, pharma,
+            and retail. He has a proven ability to map complex business
+            challenges to AI-driven solutions, transforming organizational
+            capabilities through the implementation of AI. Ladle is currently
+            serving as a Senior Advisor at Arab National Bank (ANB), where he
+            leads AI transformation initiatives under the Chief Data Officer,
+            ensuring these efforts are aligned with the bank’s strategic
+            business goals. <br />
+            <br />
+            With core competencies in AI strategy development, large language
+            models (LLM), and governance, Ladle excels in implementing
+            innovative AI technologies while ensuring ethical compliance and
+            regulatory standards are met. He is skilled at building and leading
+            AI talent, driving cross-functional collaboration, and optimizing
+            performance in AI deployments. His technical expertise includes
+            advanced AI/ML tools such as GPT, TensorFlow, and BERT, as well as
+            MLOps frameworks like Docker and Kubernetes. He also has a deep
+            understanding of data engineering, cloud platforms (GCP, AWS), and
+            programming languages like Python and Java, positioning him as a
+            thought leader in AI transformation.
           </p>
         </div>
       </div>

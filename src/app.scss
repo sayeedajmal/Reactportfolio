@@ -19,7 +19,6 @@
   display: flex;
 }
 
-
 .popup {
   display: none;
   position: fixed;
@@ -606,6 +605,7 @@
 
 .contact-left h1 {
   font-size: 50px;
+  padding-bottom: 0.7rem;
   font-weight: 700;
   background: linear-gradient(270deg, #df8908 80%, #b415ff 100%);
   background-clip: text;
@@ -840,6 +840,7 @@ body {
   background: #161513;
   color: #fff;
   font-family: outfit;
+  user-select: none;
 }
 
 .title-box {

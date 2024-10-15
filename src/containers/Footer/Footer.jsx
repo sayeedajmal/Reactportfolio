@@ -14,10 +14,9 @@ const Footer = () => {
         >
           <img src={images.logo} alt="Logo" className="w-1/6" />
           <p>
-            I'm a FullStack Developer from Karnataka, India, with 2 years of
-            experience in Frontend, Backend, API development, and DevOps. I
-            excel at creating scalable web applications and delivering
-            full-cycle software solutions.
+            I am an AI Advisor with over 12 years of experience specializing in
+            AI strategy, data science, and machine learning, with a focus on
+            transforming business operations and driving innovation.
           </p>
         </motion.div>
         <motion.div
